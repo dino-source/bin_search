@@ -155,3 +155,13 @@ TEST(TestTopic, bin_search_test_12) {
 
     EXPECT_EQ(actual_result, expected_result);
 }
+
+TEST(TestTopic, bin_search_test_13) {
+    CollT nums;
+
+    int search_value {11};
+    auto expected_result {std::nullopt};
+    auto actual_result {Solution::bin_search(nums, search_value)};
+
+    EXPECT_EQ(actual_result, expected_result);
+}
