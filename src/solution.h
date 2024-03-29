@@ -33,6 +33,13 @@ public:
 
         return result;
     }
+
+    template <typename CollT, typename RetT =
+        std::optional<typename CollT::const_iterator>>
+    static RetT bin_search(CollT const &collection, int item) {
+        RetT result {bin_search(collection.cbegin(), collection.cend(), item)};
+        return result;
+    }
 };
 
 #endif // DINO_SOURCE_BIN_SEARCH_H
