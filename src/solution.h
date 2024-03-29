@@ -7,8 +7,9 @@
 
 class Solution {
 public:
-    template <typename IterT, typename RetT = std::optional<IterT>>
-    static RetT bin_search(IterT begin, IterT end, int item) {
+    template <typename CollT, typename IterT = CollT::const_iterator,
+        typename RetT = std::optional<IterT>>
+    static RetT bin_search(IterT begin, IterT end, CollT::value_type item) {
         RetT result {};
 
         if (end <= begin) {
@@ -22,10 +23,10 @@ public:
         }
        
         if (auto middle {begin + size / 2}; *middle < item) {
-            result = bin_search(std::next(middle), end, item);
+            result = bin_search<CollT>(std::next(middle), end, item);
         }
         else if (*middle > item) {
-            result = bin_search(begin, middle, item);
+            result = bin_search<CollT>(begin, middle, item);
         }
         else if (*middle == item) {
             result = middle;
@@ -37,7 +38,7 @@ public:
     template <typename CollT, typename RetT =
         std::optional<typename CollT::const_iterator>>
     static RetT bin_search(CollT const &collection, CollT::value_type item) {
-        return bin_search(collection.cbegin(), collection.cend(), item);
+        return bin_search<CollT>(collection.cbegin(), collection.cend(), item);
     }
 };
 
