@@ -7,9 +7,9 @@
 
 class Solution {
 public:
-    template <typename IterT>
-    static std::optional<IterT> bin_search(IterT begin, IterT end, int item) {
-        std::optional<IterT> result {};
+    template <typename IterT, typename RetT = std::optional<IterT>>
+    static RetT bin_search(IterT begin, IterT end, int item) {
+        RetT result {};
 
         if (end <= begin) {
             return result;
