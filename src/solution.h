@@ -36,9 +36,8 @@ public:
 
     template <typename CollT, typename RetT =
         std::optional<typename CollT::const_iterator>>
-    static RetT bin_search(CollT const &collection, int item) {
-        RetT result {bin_search(collection.cbegin(), collection.cend(), item)};
-        return result;
+    static RetT bin_search(CollT const &collection, CollT::value_type item) {
+        return bin_search(collection.cbegin(), collection.cend(), item);
     }
 };
 
