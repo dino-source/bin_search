@@ -9,8 +9,8 @@
 /usr/bin/cmake --no-warn-unused-cli \
     -DCMAKE_BUILD_TYPE:STRING=Debug \
     -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE \
-    -DCMAKE_C_COMPILER:FILEPATH=/home/dino/repos/llvm-project/build/bin/clang \
-    -DCMAKE_CXX_COMPILER:FILEPATH=/home/dino/repos/llvm-project/build/bin/clang++ \
-    -S/home/dino/dev/cpp/leetcode//bin_search \
-    -B/home/dino/dev/cpp/leetcode//bin_search/build \
+    -DCMAKE_C_COMPILER:FILEPATH=$C_COMPILER \
+    -DCMAKE_CXX_COMPILER:FILEPATH=$CXX_COMPILER \
+    -S$DEVELOP/bin_search \
+    -B$DEVELOP/bin_search/build \
     -G Ninja
